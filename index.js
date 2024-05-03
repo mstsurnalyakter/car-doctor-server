@@ -36,8 +36,6 @@ async function run() {
         projection: { title: 1, price: 1, service_id: 1 },
       };
 
-
-
       const result = await serviceCollection.findOne(
         { _id: new ObjectId(req.params.id) },
         options
@@ -52,6 +50,11 @@ async function run() {
         const result = await bookingCollection.insertOne(req.body);
         res.send(result);
       })
+
+      app.get("/bookings", async(req,res)=>{
+        const result = await bookingCollection.find().toArray();
+        res.send(result);
+      });
 
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
