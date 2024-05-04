@@ -33,7 +33,7 @@ async function run() {
 
     app.get("/services/:id", async (req, res) => {
       const options = {
-        projection: { title: 1, price: 1, service_id: 1 },
+        projection: { title: 1, price: 1, service_id: 1 ,img:1},
       };
 
       const result = await serviceCollection.findOne(
@@ -47,7 +47,7 @@ async function run() {
     //booking
 
          app.get("/bookings", async (req, res) => {
-          
+
           let query = {};
 
           if (req.query?.email) {
@@ -62,6 +62,11 @@ async function run() {
         const result = await bookingCollection.insertOne(req.body);
         res.send(result);
       })
+
+      app.delete("/bookings/:id", async(req,res)=>{
+        const result = await bookingCollection.deleteOne({_id:new ObjectId(req.params.id)});
+        res.send(result);
+      });
 
 
 
