@@ -31,3 +31,29 @@
  * 1. to send cookies from the client make sure you added withCredentials true for the api call using axios
  * 2. use cookie parser as middleware
  */
+
+
+/**
+ *
+ * --------------------------------------
+ *            Make API Secure
+ * --------------------------------------
+ *
+ * The person who should have access
+ *
+ * concept:
+ * 1. assign two tokens for each person (access token,refresh token)
+ * 2. access token contain : user identification (email,role etc.).valid for shorter duration
+ * 3. refresh token is used: to recreate an access token that was expired.
+ * 4. if refresh token is invalid then logout the user
+ *
+ */
+
+
+
+/**
+ * 1. jwt ---> json web token
+ * 2. install jsonwebtoken
+ * 3. token generate: sign the user --> it take three things -->data , secretKey, expiresIn Time
+ * 4. 
+ */
